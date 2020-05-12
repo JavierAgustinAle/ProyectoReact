@@ -17,9 +17,22 @@ function App() {
           <TarjetaCurso />
           <TarjetaCurso />
           <TarjetaCurso />
-          <InfoCurso />
-          <InfoCurso />
-          <InfoCurso />
+          <InfoCurso 
+              title="Curso React" 
+              image="https://edteam-media.s3.amazonaws.com/courses/original/8b7ef439-b9bc-485f-9608-d82d0d1a7a2b.png"
+              price="50 USD" 
+          />
+          <InfoCurso 
+              title="FireBase con Android" 
+              image="https://edteam-media.s3.amazonaws.com/courses/original/edbb2e26-eafa-4e9e-82eb-13b65714ae33.png"
+              price="15 USD" 
+          />
+          <InfoCurso 
+              title="Trabajo Remoto" 
+              image="https://edteam-media.s3.amazonaws.com/courses/original/8ab1c233-9f8d-4f75-b0a8-5bd57a528aa0.png"
+              price="25 USD" 
+          />
+          
       </div>
     </div>
   );

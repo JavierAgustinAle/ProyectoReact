@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../assets/css/styles.scss';
 
 function mayorDeEdad(edad) {
@@ -12,13 +12,8 @@ const persona = {"nombre":"Javier", "apellido":"Ale", "edad": 85 } //Un array
 
 
 
-class TarjetaCurso extends Component {
-render() {
+const TarjetaCurso =() => (
 
-  //const persona = {"nombre":"Javier", "apellido":"Ale", "edad": 85 }
-  //const mayorDeEdad = edad => edad > 18 
-  
-        return(
             <React.Fragment>
                 <article className="card">
               <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
@@ -44,9 +39,8 @@ render() {
               </div>
             </article>
             </React.Fragment>
-        );
-    }
-}
+      
+)
 
 export default TarjetaCurso;
 
