@@ -4,6 +4,7 @@ import './assets/css/styles.scss';
 
 //Importo un componente para poder usarlo aca.
 import TarjetaCurso from './components/TarjetaCurso';
+import InfoCurso from './components/InfoCurso';
 
 
 
@@ -16,6 +17,9 @@ function App() {
           <TarjetaCurso />
           <TarjetaCurso />
           <TarjetaCurso />
+          <InfoCurso />
+          <InfoCurso />
+          <InfoCurso />
       </div>
     </div>
   );
