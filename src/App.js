@@ -6,7 +6,28 @@ import './assets/css/styles.scss';
 import TarjetaCurso from './components/TarjetaCurso';
 import InfoCurso from './components/InfoCurso';
 
-
+const cursos = [
+  {
+    "title": "React.js para principiantes",
+    "image": "https://edteam-media.s3.amazonaws.com/courses/original/5eaaec0b-fa78-4f48-94b6-61b757e1f5fa.png",
+    "price": 30
+  },
+  {
+    "title": "FireBase para principiantes",
+    "image": "https://edteam-media.s3.amazonaws.com/courses/original/edbb2e26-eafa-4e9e-82eb-13b65714ae33.png",
+    "price": 30
+  },
+  {
+    "title": "React.js Intermedio",
+    "image": "https://edteam-media.s3.amazonaws.com/blogs/original/4d73569d-ccdb-4e6d-8d94-ae8814c39764.jpg",
+    "price": 40
+  },
+  {
+    "title": "React Native Experto",
+    "image": "https://edteam-media.s3.amazonaws.com/specialities/original/3e6a0de6-602b-439c-a90b-346f13c6760f.png",
+    "price": 55
+  }
+]
 
 function App() {
 
@@ -17,19 +38,14 @@ function App() {
           <TarjetaCurso />
           <TarjetaCurso />
           <TarjetaCurso />
-          <InfoCurso 
-              title="Curso React" 
-              image="https://edteam-media.s3.amazonaws.com/courses/original/8b7ef439-b9bc-485f-9608-d82d0d1a7a2b.png"
-              price="50 USD" 
-          />
-          <InfoCurso 
-              title="FireBase con Android" 
-              image="https://edteam-media.s3.amazonaws.com/courses/original/edbb2e26-eafa-4e9e-82eb-13b65714ae33.png"
-              price="15 USD" 
-          />
-          <InfoCurso/>
-          
-      </div>
+          {
+            cursos.map( cursoQueRecibo => 
+              <InfoCurso title={cursoQueRecibo.title} image={ cursoQueRecibo.image} price={cursoQueRecibo.price}   />
+            )
+              //Hago un map en cursos, cada array que recibo lo pongo en curso.Y de ahi con eso llamo el componente
+          }
+
+        </div>
     </div>
   );
 }

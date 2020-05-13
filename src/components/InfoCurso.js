@@ -15,7 +15,7 @@ const InfoCurso = props => (
                     {props.title}
                 </h3>
                 <div className="s-main-center">
-                    <a className="button--ghost-alert button--tiny" href="localhost:3000">{` $ ${props.price}`}</a>
+                    <a className="button--ghost-alert button--tiny" href="localhost:3000">{` $ ${props.price} USD`}</a>
                 </div>
             </div>
         </article>
@@ -25,13 +25,13 @@ const InfoCurso = props => (
 InfoCurso.propTypes = {    //Indicamos que tipo de prop esperamos que nos lleguen, la defino abajo de la const!!
     title: PropTypes.string,
     image: PropTypes.string,
-    price: PropTypes.string
+    price: PropTypes.number
 }
 
 InfoCurso.defaultProps = {  //Indico los valores que tendran las props por defecto, si no llegan parametros usa estas.
     title: "No se encontro titulo",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQd8FdQLudZ2csxo7iqwxBA9wCjQ_XYFf8bNxGKZVV1uhhK9gH7&usqp=CAU",
-    price: "--"
+    price: 0
 }
 
 
