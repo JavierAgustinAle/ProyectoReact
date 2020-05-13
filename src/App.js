@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="ed-grid m-grid-3">
+        <div className="ed-grid m-grid-3">
           <TarjetaCurso />
           <TarjetaCurso />
           <TarjetaCurso />

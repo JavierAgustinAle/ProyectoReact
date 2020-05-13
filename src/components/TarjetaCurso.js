@@ -10,12 +10,12 @@ function mayorDeEdad(edad) {
 }
 const persona = {"nombre":"Javier", "apellido":"Ale", "edad": 85 } //Un array
 
+//ESTE COMPONENTE NO RECIBE PARAMETROS POR ESO LAS () VACIAS
 
-
-const TarjetaCurso =() => (
+const TarjetaCurso = () => (
 
             <React.Fragment>
-                <article className="card">
+             <article className="card">
               <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
                 <img src="https://edteam-media.s3.amazonaws.com/courses/original/565fa9ec-8f84-448a-b0d8-855d059f16dd.png" alt="ImgCurso" />
               </div>

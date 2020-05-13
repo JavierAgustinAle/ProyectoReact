@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/css/styles.scss';
 
-
+// Este es un COMPONENTE PRESENTACIONAL  //
 
 const InfoCurso = props => (
     <React.Fragment>
@@ -24,4 +24,4 @@ const InfoCurso = props => (
 export default InfoCurso;
 
 // const InfoCurso = props => ASI RECIBO TODO EL OBJETO PROP, si pongo el nombre 
-        //directamente puedo recibir solo lo que quiero del objeto, ej: InfoCurso = ({image, title, price}) =>
+    //directamente puedo recibir solo lo que quiero del objeto, ej: InfoCurso = ({image, title, price}) =>
