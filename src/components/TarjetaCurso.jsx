@@ -34,7 +34,7 @@ const TarjetaCurso = () => (
                   </div>
                 </div>
                 <div className="s-main-center">
-                  <a className="button--ghost-alert button--tiny" href="localhost:3000">$ 20USD</a>
+                  <a className="button--ghost-alert button--tiny" href="www.linkedin.com/in/javieragustinale">$ 20USD</a>
                 </div>
               </div>
             </article>

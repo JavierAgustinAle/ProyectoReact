@@ -3,7 +3,7 @@ import './assets/css/App.css';
 import './assets/css/styles.scss';
 
 //Importo un componente para poder usarlo aca.
-import TarjetaCurso from './components/TarjetaCurso';
+import Formulario  from './components/Formulario';
 import InfoCurso from './components/InfoCurso';
 
 const cursos = [
@@ -21,11 +21,6 @@ const cursos = [
     "title": "React.js Intermedio",
     "image": "https://edteam-media.s3.amazonaws.com/blogs/original/4d73569d-ccdb-4e6d-8d94-ae8814c39764.jpg",
     "price": 40
-  },
-  {
-    "title": "React Native Experto",
-    "image": "https://edteam-media.s3.amazonaws.com/specialities/original/3e6a0de6-602b-439c-a90b-346f13c6760f.png",
-    "price": 55
   }
 ]
 
@@ -35,17 +30,14 @@ function App() {
   return (
     <div className="App">
         <div className="ed-grid m-grid-3">
-          <TarjetaCurso />
-          <TarjetaCurso />
-          <TarjetaCurso />
           {
             cursos.map( cursoQueRecibo => 
               <InfoCurso title={cursoQueRecibo.title} image={ cursoQueRecibo.image} price={cursoQueRecibo.price}   />
             )
               //Hago un map en cursos, cada array que recibo lo pongo en curso.Y de ahi con eso llamo el componente
           }
-
         </div>
+        <Formulario />
     </div>
   );
 }

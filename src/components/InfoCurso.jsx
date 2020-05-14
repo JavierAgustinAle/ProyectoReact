@@ -15,10 +15,11 @@ const InfoCurso = props => (
                     {props.title}
                 </h3>
                 <div className="s-main-center">
-                    <a className="button--ghost-alert button--tiny" href="localhost:3000">{` $ ${props.price} USD`}</a>
+                    <a className="button--ghost-alert button--tiny" href="www.linkedin.com/in/javieragustinale">{` $ ${props.price} USD`}</a>
                 </div>
             </div>
         </article>
+        
     </React.Fragment>
 )
 
