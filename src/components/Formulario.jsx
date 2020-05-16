@@ -9,11 +9,13 @@ class Formulario extends Component {
         
         this.state = {
             nombre: "",
-            correo: ""
+            correo: "",
+            fecha: new Date()
         }
 
         this.cambiarNombre = this.cambiarNombre.bind(this) //Esto hay que hacerlo si o si!!
         this.cambiarMail = this.cambiarMail.bind(this)
+        this.cambiarFecha = this.cambiarFecha.bind(this)
     }
 
     cambiarNombre(e) {
@@ -28,31 +30,36 @@ class Formulario extends Component {
         })
     }
 
+    cambiarFecha() {
+        this.setState({
+            fecha: new Date()
+        })
+    }
+
     render() {
         return(
             <React.Fragment>
                 <div className="ed-grid">
                 <h1>Formulario {this.props.nameForm}</h1>
-                    <form>
+                <h4>Fecha Actual en Segundos: {Math.ceil(this.state.fecha / 1000)}</h4>
+                    <form id="form">
                         <div className="ed-grid m-grid-2">
-                            
-                                    <div className="form__item">
-                                        <label htmlFor="nombre"> Nombre Completo</label>
-                                        <input 
-                                            type="text" 
-                                            name="nombre" 
-                                            onChange = { this.cambiarNombre} //Llamo al metodo que se encarga
-                                        />
-                                    </div>
-                                    <div className="form__item">
-                                        <label htmlFor="email"> Correo Electronico</label>
-                                        <input 
-                                            type="email" 
-                                            name="email" 
-                                            onChange = {this.cambiarMail}
-                                        />
-                                    </div>
-                            
+                            <div className="form__item">
+                                <label htmlFor="nombre"> Nombre Completo</label>
+                                <input 
+                                    type="text" 
+                                    name="nombre" 
+                                    onChange = { this.cambiarNombre} //Llamo al metodo que se encarga
+                                />
+                            </div>
+                            <div className="form__item">
+                                <label htmlFor="email"> Correo Electronico</label>
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    onChange = {this.cambiarMail}
+                                />
+                            </div>
                         </div>
                     </form>
                     <h2>{`Hola ${this.state.nombre}`}</h2>
@@ -63,7 +70,32 @@ class Formulario extends Component {
         );
     }
 
-    //componentDidMount() {}  Este metodo lo puedo usar para cuando quiero hacer algo luego de que ya se renderizo el DOM
+    // componentDidMount() {
+    //     this.intervaloFecha = setInterval(() =>{
+    //         this.cambiarFecha()
+    //     }, 1000)
+    // }  
+        // Este metodo lo puedo usar para cuando quiero hacer algo luego de que ya se renderizo el DOM. 
+        // Se pone despues del render()
+
+//--------------------------------------------------------------------------------------------------------------
+
+    // componentDidUpdate (prevProps, prevState) { 
+    //     console.log(prevProps)
+    //     console.log(prevState)
+    //     console.log('---------------')
+    // }
+        //Metodo que se ejecuta al actualizar. 
+        // Usando el prevProps y el prevState podemos ver el valor de ambos antes de que se actualice
+
+//------------------------------------------------------------------------------------------------------------
+
+    // componentWillUnmount() {
+    //     clearInterval(this.intervaloFecha)
+    // }
+        // Metodo que se ejecuta al desmontar el componente.
+        // En este caso lo uso para matar el intervalo
+
 }
 
 export default Formulario;

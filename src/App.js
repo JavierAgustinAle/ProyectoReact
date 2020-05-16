@@ -32,7 +32,7 @@ function App() {
         <div className="ed-grid m-grid-3">
           {
             cursos.map( cursoQueRecibo => 
-              <InfoCurso title={cursoQueRecibo.title} image={ cursoQueRecibo.image} price={cursoQueRecibo.price}   />
+              <InfoCurso title={cursoQueRecibo.title} image={ cursoQueRecibo.image} price={cursoQueRecibo.price} key={cursoQueRecibo.image}  />
             )
               //Hago un map en cursos, cada array que recibo lo pongo en curso.Y de ahi con eso llamo el componente
           }
