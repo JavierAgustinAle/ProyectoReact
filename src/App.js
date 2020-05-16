@@ -37,7 +37,7 @@ function App() {
               //Hago un map en cursos, cada array que recibo lo pongo en curso.Y de ahi con eso llamo el componente
           }
         </div>
-        <Formulario />
+        <Formulario nameForm={"De Clase"}/>
     </div>
   );
 }

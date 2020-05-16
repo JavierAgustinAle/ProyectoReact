@@ -11,13 +11,28 @@ class Formulario extends Component {
             nombre: "",
             correo: ""
         }
+
+        this.cambiarNombre = this.cambiarNombre.bind(this) //Esto hay que hacerlo si o si!!
+        this.cambiarMail = this.cambiarMail.bind(this)
+    }
+
+    cambiarNombre(e) {
+        this.setState({                 //Cuando cambie le asigo al state nombre el valor de e
+            nombre: e.target.value
+        })
+    }
+
+    cambiarMail(e) {
+        this.setState({
+            correo: e.target.value
+        })
     }
 
     render() {
         return(
             <React.Fragment>
                 <div className="ed-grid">
-                    <h1>Formulario de Inscripcion</h1>
+                <h1>Formulario {this.props.nameForm}</h1>
                     <form>
                         <div className="ed-grid m-grid-2">
                             
@@ -26,9 +41,7 @@ class Formulario extends Component {
                                         <input 
                                             type="text" 
                                             name="nombre" 
-                                            onChange = { e => this.setState({  //Cuando cambie le asigo al state nombre el valor de e
-                                                nombre: e.target.value
-                                            })}
+                                            onChange = { this.cambiarNombre} //Llamo al metodo que se encarga
                                         />
                                     </div>
                                     <div className="form__item">
@@ -36,9 +49,7 @@ class Formulario extends Component {
                                         <input 
                                             type="email" 
                                             name="email" 
-                                            onChange = {e => this.setState({
-                                                correo: e.target.value
-                                            })}
+                                            onChange = {this.cambiarMail}
                                         />
                                     </div>
                             
@@ -51,6 +62,8 @@ class Formulario extends Component {
             </React.Fragment>
         );
     }
+
+    //componentDidMount() {}  Este metodo lo puedo usar para cuando quiero hacer algo luego de que ya se renderizo el DOM
 }
 
 export default Formulario;
