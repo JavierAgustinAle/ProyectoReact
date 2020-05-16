@@ -70,11 +70,11 @@ class Formulario extends Component {
         );
     }
 
-    // componentDidMount() {
-    //     this.intervaloFecha = setInterval(() =>{
-    //         this.cambiarFecha()
-    //     }, 1000)
-    // }  
+    componentDidMount() {
+        this.intervaloFecha = setInterval(() =>{
+            this.cambiarFecha()
+        }, 1000)
+    }  
         // Este metodo lo puedo usar para cuando quiero hacer algo luego de que ya se renderizo el DOM. 
         // Se pone despues del render()
 
@@ -90,9 +90,9 @@ class Formulario extends Component {
 
 //------------------------------------------------------------------------------------------------------------
 
-    // componentWillUnmount() {
-    //     clearInterval(this.intervaloFecha)
-    // }
+    componentWillUnmount() {
+        clearInterval(this.intervaloFecha)
+    }
         // Metodo que se ejecuta al desmontar el componente.
         // En este caso lo uso para matar el intervalo
 

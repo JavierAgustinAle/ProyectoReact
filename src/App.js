@@ -1,44 +1,35 @@
 import React from 'react';
 import './assets/css/App.css';
 import './assets/css/styles.scss';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 //Importo un componente para poder usarlo aca.
 import Formulario  from './components/Formulario';
-import InfoCurso from './components/InfoCurso';
+import CourseGrid from './components/CourseGrid';
+import Banner from './components/Banner';
 
-const cursos = [
-  {
-    "title": "React.js para principiantes",
-    "image": "https://edteam-media.s3.amazonaws.com/courses/original/5eaaec0b-fa78-4f48-94b6-61b757e1f5fa.png",
-    "price": 30
-  },
-  {
-    "title": "FireBase para principiantes",
-    "image": "https://edteam-media.s3.amazonaws.com/courses/original/edbb2e26-eafa-4e9e-82eb-13b65714ae33.png",
-    "price": 30
-  },
-  {
-    "title": "React.js Intermedio",
-    "image": "https://edteam-media.s3.amazonaws.com/blogs/original/4d73569d-ccdb-4e6d-8d94-ae8814c39764.jpg",
-    "price": 40
-  }
-]
+
 
 function App() {
-
-
   return (
-    <div className="App">
-        <div className="ed-grid m-grid-3">
-          {
-            cursos.map( cursoQueRecibo => 
-              <InfoCurso title={cursoQueRecibo.title} image={ cursoQueRecibo.image} price={cursoQueRecibo.price} key={cursoQueRecibo.image}  />
-            )
-              //Hago un map en cursos, cada array que recibo lo pongo en curso.Y de ahi con eso llamo el componente
-          }
-        </div>
-        <Formulario nameForm={"De Clase"}/>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component = { Banner} />
+
+        <Route path="/cursos" exact component = { CourseGrid } />
+        
+
+        <Route path="/inscripcion" exact component ={() => <Formulario nameForm={"De Clase"} />} />
+        
+        <Route>
+          <div className="ed-grid">
+            <h1>Error 404</h1>
+            <span>Pagina no encontrada.</span>
+          </div>
+        </Route> 
+
+      </Switch>
+    </Router>
   );
 }
 
@@ -53,3 +44,13 @@ export default App;
 //4: <img> siempre se cierra <img src=""></img>
 //5: Para darle clase a las etiquetas HTML uso className="".
 //6: A las img hay que ponerles un alt <img src="" alt="">
+
+//ROUTE 
+  // path es la URL que aparece,  y luego nombro el componente.
+  // El Route que no lleva path, ahi pongo un componente o 
+  // lo que quiero mostrar cuando se ingresa una url que no existe en la pagina. Es la por defecto.
+
+//SWITCH
+  // Para que no se quede pegado el route por defecto cuando cambio.
+
+//Mandar Parametros con Route, es path="cursos/:id" id es el nombre que le damos al parametro que vamos a mandar
