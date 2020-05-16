@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Formulario  from './components/Formulario';
 import CourseGrid from './components/CourseGrid';
 import Banner from './components/Banner';
+import Curso from './components/Curso';
 
 
 
@@ -16,9 +17,9 @@ function App() {
       <Switch>
         <Route path="/" exact component = { Banner} />
 
+        <Route path="/cursos/:id" exact component = { Curso } />
         <Route path="/cursos" exact component = { CourseGrid } />
         
-
         <Route path="/inscripcion" exact component ={() => <Formulario nameForm={"De Clase"} />} />
         
         <Route>
@@ -53,4 +54,5 @@ export default App;
 //SWITCH
   // Para que no se quede pegado el route por defecto cuando cambio.
 
-//Mandar Parametros con Route, es path="cursos/:id" id es el nombre que le damos al parametro que vamos a mandar
+// Mandar Parametros con Route, es path="cursos/:id" id es el nombre que le damos al parametro que vamos a mandar.
+  // La ruta que tiene parametros va primero que la misma que no tiene, porque usamos el shwitch y es el primero que coincide.
