@@ -1,3 +1,8 @@
+Aplicacion realizada poniendo en practica lo aprendido en curso de ReactJs.
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
