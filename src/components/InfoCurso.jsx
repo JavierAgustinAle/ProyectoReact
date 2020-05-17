@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../assets/css/styles.scss';
+import { Link } from 'react-router-dom';
 
 
 
@@ -8,7 +9,9 @@ const InfoCurso = props => (
     <React.Fragment>
         <article className="card">
             <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-                { <img src={props.image} alt={props.title} /> }
+                <Link to={`/cursos/${props.id}`}>
+                     <img src={props.image} alt={props.title} /> 
+                </Link>
             </div>
             <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
                 <h3 className="center">
