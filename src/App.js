@@ -8,20 +8,24 @@ import Formulario  from './components/Formulario';
 import CourseGrid from './components/CourseGrid';
 import Banner from './components/Banner';
 import Curso from './components/Curso';
+import MainMenu from './components/MainMenu';
+import Historial from './components/Historial';
 
 
 
 function App() {
   return (
     <Router>
+      <MainMenu />
       <Switch>
         <Route path="/" exact component = { Banner} />
 
         <Route path="/cursos/:id" exact component = { Curso } />
         <Route path="/cursos" exact component = { CourseGrid } />
         
-        <Route path="/inscripcion" exact component ={() => <Formulario nameForm={"De Clase"} />} />
-        
+        <Route path="/inscripcion" exact component ={() => <Formulario nameForm={"De Registro"} />} />
+
+        <Route path="/historial" exact component = {() => <Historial />} />
         <Route>
           <div className="ed-grid">
             <h1>Error 404</h1>
