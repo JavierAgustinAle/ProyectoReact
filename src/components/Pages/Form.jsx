@@ -1,38 +1,38 @@
 import React, { Component } from "react";
-import '../assets/css/styles.scss';
+import '../../assets/css/styles.scss';
 
 
-class Formulario extends Component {
+class Form extends Component {
 
     constructor(props) {  //Creo una instancia de la clase Formulario. Hago esto cuando recibe PROPS
         super(props)
         
         this.state = {
-            nombre: "",
-            correo: "",
-            fecha: new Date()
+            name: "",
+            mail: "",
+            date: new Date()
         }
 
-        this.cambiarNombre = this.cambiarNombre.bind(this) //Esto hay que hacerlo si o si!!
-        this.cambiarMail = this.cambiarMail.bind(this)
-        this.cambiarFecha = this.cambiarFecha.bind(this)
+        this.changeName = this.changeName.bind(this) //Esto hay que hacerlo si o si!!
+        this.changeMail = this.changeMail.bind(this)
+        this.changeDate = this.changeDate.bind(this)
     }
 
-    cambiarNombre(e) {
+    changeName(e) {
         this.setState({                 //Cuando cambie le asigo al state nombre el valor de e
-            nombre: e.target.value
+            name: e.target.value
         })
     }
 
-    cambiarMail(e) {
+    changeMail(e) {
         this.setState({
-            correo: e.target.value
+            mail: e.target.value
         })
     }
 
-    cambiarFecha() {
+    changeDate() {
         this.setState({
-            fecha: new Date()
+            date: new Date()
         })
     }
 
@@ -41,7 +41,7 @@ class Formulario extends Component {
             <React.Fragment>
                 <div className="ed-grid">
                 <h1>Formulario {this.props.nameForm}</h1>
-                <h4>Fecha Actual en Segundos: {Math.ceil(this.state.fecha / 1000)}</h4>
+                <h4>Fecha Actual en Segundos: {Math.ceil(this.state.date / 1000)}</h4>
                     <form id="form">
                         <div className="ed-grid m-grid-2">
                             <div className="form__item">
@@ -49,7 +49,7 @@ class Formulario extends Component {
                                 <input 
                                     type="text" 
                                     name="nombre" 
-                                    onChange = { this.cambiarNombre} //Llamo al metodo que se encarga
+                                    onChange = { this.changeName} //Llamo al metodo que se encarga
                                 />
                             </div>
                             <div className="form__item">
@@ -57,13 +57,13 @@ class Formulario extends Component {
                                 <input 
                                     type="email" 
                                     name="email" 
-                                    onChange = {this.cambiarMail}
+                                    onChange = {this.changeMail}
                                 />
                             </div>
                         </div>
                     </form>
-                    <h2>{`Hola ${this.state.nombre}`}</h2>
-                    <span>{`Tu email es: ${this.state.correo}`}</span>
+                    <h2>{`Hola ${this.state.name}`}</h2>
+                    <span>{`Tu email es: ${this.state.mail}`}</span>
                 </div>
                 
             </React.Fragment>
@@ -72,7 +72,7 @@ class Formulario extends Component {
 
     componentDidMount() {
         this.intervaloFecha = setInterval(() =>{
-            this.cambiarFecha()
+            this.changeDate()
         }, 1000)
     }  
         // Este metodo lo puedo usar para cuando quiero hacer algo luego de que ya se renderizo el DOM. 
@@ -98,7 +98,7 @@ class Formulario extends Component {
 
 }
 
-export default Formulario;
+export default Form;
 
 //Usando el onChange y dentro un callback para llamar al setState, puedo cambiar el valor de nombre o correo de forma dinamica,
     //asignandole el valor que va ingresando el usuario en los input

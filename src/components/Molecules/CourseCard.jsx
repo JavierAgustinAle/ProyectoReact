@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../assets/css/styles.scss';
+import '../../assets/css/styles.scss';
 import { Link } from 'react-router-dom';
 
 
 
-const InfoCurso = props => (
+const CourseCard = props => (
     <React.Fragment>
         <article className="card">
             <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
@@ -26,20 +26,20 @@ const InfoCurso = props => (
     </React.Fragment>
 )
 
-InfoCurso.propTypes = {    //Indicamos que tipo de prop esperamos que nos lleguen, la defino abajo de la const!!
+CourseCard.propTypes = {    //Indicamos que tipo de prop esperamos que nos lleguen, la defino abajo de la const!!
     title: PropTypes.string,
     image: PropTypes.string,
     price: PropTypes.number
 }
 
-InfoCurso.defaultProps = {  //Indico los valores que tendran las props por defecto, si no llegan parametros usa estas.
+CourseCard.defaultProps = {  //Indico los valores que tendran las props por defecto, si no llegan parametros usa estas.
     title: "No se encontro titulo",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQd8FdQLudZ2csxo7iqwxBA9wCjQ_XYFf8bNxGKZVV1uhhK9gH7&usqp=CAU",
     price: 0
 }
 
 
-export default InfoCurso;
+export default CourseCard;
 
 
 

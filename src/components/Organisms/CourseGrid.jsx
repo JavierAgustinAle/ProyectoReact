@@ -1,8 +1,8 @@
 import React from 'react';
-import '../assets/css/styles.scss';
-import InfoCurso from './InfoCurso';
+import '../../assets/css/styles.scss';
+import CourseCard from '../Molecules/CourseCard';
 
-const cursos = [
+const courses = [
     {
       "id": 1,
       "title": "React.js para principiantes",
@@ -28,8 +28,8 @@ const CourseGrid = () => (
 
     <div className="ed-grid m-grid-3">
           {
-            cursos.map(c => (
-                <InfoCurso key = {c.id} 
+            courses.map(c => (
+                <CourseCard key = {c.id} 
                     id = {c.id} 
                     title={c.title} 
                     image={c.image} 

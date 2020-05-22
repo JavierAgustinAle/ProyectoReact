@@ -1,16 +1,14 @@
 import React from 'react';
-import './assets/css/App.css';
-import './assets/css/styles.scss';
+import '../assets/css/App.css';
+import '../assets/css/styles.scss';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 //Importo un componente para poder usarlo aca.
-import Formulario  from './components/Formulario';
-import CourseGrid from './components/CourseGrid';
-import Banner from './components/Banner';
-import Curso from './components/Curso';
-import MainMenu from './components/MainMenu';
-import Historial from './components/Historial';
-
+import Form  from './Pages/Form';
+import CourseGrid from './Organisms/CourseGrid';
+import Curso from './Pages/Curso';
+import MainMenu from './Pages/MainMenu';
+import Home from './Pages/Home';
 
 
 function App() {
@@ -18,14 +16,13 @@ function App() {
     <Router>
       <MainMenu />
       <Switch>
-        <Route path="/" exact component = { Banner} />
+        <Route path="/" exact component = { Home} />
 
         <Route path="/cursos/:id" exact component = { Curso } />
         <Route path="/cursos" exact component = { CourseGrid } />
         
-        <Route path="/inscripcion" exact component ={() => <Formulario nameForm={"De Registro"} />} />
+        <Route path="/inscripcion" exact component ={() => <Form nameForm={"De Registro"} />} />
 
-        <Route path="/historial" exact component = {() => <Historial />} />
         <Route>
           <div className="ed-grid">
             <h1>Error 404</h1>
