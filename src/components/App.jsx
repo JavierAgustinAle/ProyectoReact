@@ -9,6 +9,7 @@ import CourseGrid from './Organisms/CourseGrid';
 import Curso from './Pages/Curso';
 import MainMenu from './Pages/MainMenu';
 import Home from './Pages/Home';
+import Users from './Pages/Users';
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
 
         <Route path="/cursos/:id" exact component = { Curso } />
         <Route path="/cursos" exact component = { CourseGrid } />
+
+        <Route path="/usuarios" exact component ={ Users } /> 
         
         <Route path="/inscripcion" exact component ={() => <Form nameForm={"De Registro"} />} />
 
