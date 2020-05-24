@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UserCard from '../Molecules/UserCard'
+import axios from 'axios'
 
 
 
@@ -13,16 +14,25 @@ class Users extends Component {
         }
     }
 
-    componentDidMount() {
+    /* componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/users', {method: 'get'})
         .then(result => result.json())              // En muchos casos ya viene lo que queremos en esta promesa
         .then(response => {                     // En este caso debemos hacer el .json y ahi obtenemos el resultado querido
             this.setState({
-                users: response                    //Obtenemos el response y actualizamos el value del state
+                users: response                    
             })
         })    
-    }
+    } */
 
+    componentDidMount() {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(result => {                                           // Con axios no hacen falta las dos promesas, lo que queremos esta en
+            this.setState({                                             // axios.data
+                users: result.data                              //Obtenemos el result y actualizamos el value del state a result.state
+            })                                                       
+        })                        
+                                                                    
+    }
 
 
     render() {
@@ -51,7 +61,4 @@ class Users extends Component {
 export default Users
 
 
-// El componentDidMount hace un fetch('Url que llamamos', {method: 'get'})
-// La url y el metodo que vamos a usar, ej GET, POST.
-
-// Uso el then para tomar lo que recibo,( similar al suscribe)
+// El componentDidMount usamos axios.get('Url a llamar')
