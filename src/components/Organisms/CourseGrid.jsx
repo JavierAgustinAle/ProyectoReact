@@ -1,45 +1,27 @@
-import React from 'react';
-import '../../assets/css/styles.scss';
-import CourseCard from '../Molecules/CourseCard';
-
-const courses = [
-    {
-      "id": 1,
-      "title": "React.js para principiantes",
-      "image": "https://edteam-media.s3.amazonaws.com/courses/original/5eaaec0b-fa78-4f48-94b6-61b757e1f5fa.png",
-      "price": 30
-    },
-    {
-      "id": 2,
-      "title": "FireBase para principiantes",
-      "image": "https://edteam-media.s3.amazonaws.com/courses/original/edbb2e26-eafa-4e9e-82eb-13b65714ae33.png",
-      "price": 30
-    },
-    {
-      "id": 3,
-      "title": "React.js Intermedio",
-      "image": "https://edteam-media.s3.amazonaws.com/specialities/original/3e6a0de6-602b-439c-a90b-346f13c6760f.png",
-      "price": 40
-    }
-  ]
+import React from 'react'
+import CourseCard from '../Molecules/CourseCard'
+import withLoader from '../HOC/withLoader'
 
 
-const CourseGrid = () => (
-
-    <div className="ed-grid m-grid-3">
-          {
-            courses.map(c => (
-                <CourseCard key = {c.id} 
-                    id = {c.id} 
-                    title={c.title} 
-                    image={c.image} 
-                    price={c.price} 
+const CourseGrid = ({courses}) => (
+    <React.Fragment>
+        <div className="ed-grid m-grid-3">
+            { courses.length === 0 
+            ? <h1 className="t3"> Cargando...</h1> 
+            : courses.map(c => (              //Hago un map en cursos, cada array que recibo lo pongo en curso.Y de ahi con eso llamo el componente
+                <CourseCard key = {c.id}        
+                id = {c.id} 
+                title={c.title} 
+                image={c.image} 
+                price={c.price} 
                 />
             ))
-            
-              //Hago un map en cursos, cada array que recibo lo pongo en curso.Y de ahi con eso llamo el componente
-          }
-    </div>
+            }
+        </div>
+    </React.Fragment>
 )
 
-export default CourseGrid;
+export default withLoader(CourseGrid) ;
+
+
+// Asi hago para invocar un componente de orden superior (HOC), agrego el nombre del componente en el export

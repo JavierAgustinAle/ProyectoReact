@@ -5,9 +5,9 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 //Importo un componente para poder usarlo aca.
 import Form  from './Pages/Form';
-import CourseGrid from './Organisms/CourseGrid';
+import Courses from './Pages/Courses';
 import Curso from './Pages/Curso';
-import MainMenu from './Pages/MainMenu';
+import MainMenu from './Organisms/MainMenu';
 import Home from './Pages/Home';
 import Users from './Pages/Users';
 
@@ -20,7 +20,7 @@ function App() {
         <Route path="/" exact component = { Home} />
 
         <Route path="/cursos/:id" exact component = { Curso } />
-        <Route path="/cursos" exact component = { CourseGrid } />
+        <Route path="/cursos" exact component = { Courses } />
 
         <Route path="/usuarios" exact component ={ Users } /> 
         
