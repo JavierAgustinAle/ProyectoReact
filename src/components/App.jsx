@@ -24,7 +24,7 @@ function App() {
 
         <Route path="/usuarios" exact component ={ Users } /> 
         
-        <Route path="/inscripcion" exact component ={() => <Form nameForm={"De Registro"} />} />
+        <Route path="/inscripcion" exact component ={() => <Form nameForm={"de Log In"} />} />
 
         <Route>
           <div className="ed-grid">

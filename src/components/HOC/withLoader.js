@@ -1,14 +1,14 @@
 import React, { Component } from "react"
 
-const withLoader = (WrappedComponent) => {
+//                 Value custom     Componente
+const withLoader = (propsValue) => (WrappedComponent) => {
+
     return class WithLoader extends Component {
 
-        constructor(props) {
-            super(props)
-        }
-
         render() {
-            return <WrappedComponent {...this.props} />
+            return  this.props[propsValue].length === 0             // PropsValue es un string con el nombre del atributo del componente
+            ? <h1 className="t3"> Cargando...</h1>                  // Son las props del componente que recibe.
+            :  <WrappedComponent {...this.props} />
         }
     }
 }

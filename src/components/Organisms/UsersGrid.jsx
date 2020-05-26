@@ -1,5 +1,6 @@
 import React from 'react'
 import UserCard from '../Molecules/UserCard'
+import withLoader from '../HOC/withLoader'
 
 const UsersGrid = ({ users }) => (
     <React.Fragment>
@@ -7,9 +8,7 @@ const UsersGrid = ({ users }) => (
                     <h1>Usuarios</h1>
                     <div className="ed-grid s-grid-2 m-grid-3 l-grid-4">
                         {
-                           users.length === 0 
-                           ? <h1 className="t3">Cargando...</h1>
-                           :  users.map(u => ( 
+                            users.map(u => ( 
                                 <UserCard  
                                 key={u.id} 
                                 name={u.name} 
@@ -22,4 +21,5 @@ const UsersGrid = ({ users }) => (
             </React.Fragment>
 )
 
-export default UsersGrid;
+export default withLoader('users') (UsersGrid);         //Mando como string el nombre de las props de este componente
+// export default withLoader('users', UsersGrid);  Tambien se puede poner asi
