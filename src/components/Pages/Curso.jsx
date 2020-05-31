@@ -1,47 +1,44 @@
-import React from 'react'
-
-
-const cursos = [
-    {
-      "id": 1,
-      "title": "React.js para principiantes",
-      "image": "https://edteam-media.s3.amazonaws.com/courses/original/5eaaec0b-fa78-4f48-94b6-61b757e1f5fa.png",
-      "price": 30
-    },
-    {
-      "id": 2,
-      "title": "FireBase para principiantes",
-      "image": "https://edteam-media.s3.amazonaws.com/courses/original/edbb2e26-eafa-4e9e-82eb-13b65714ae33.png",
-      "price": 30
-    },
-    {
-      "id": 3,
-      "title": "React.js Intermedio",
-      "image": "https://edteam-media.s3.amazonaws.com/specialities/original/3e6a0de6-602b-439c-a90b-346f13c6760f.png",
-      "price": 40
-    }
-  ]
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 
 
 const Curso = ({ match }) => {
 
-    const cursoElegido = cursos.filter(c => c.id === parseInt(match.params.id))[0] //Recivo un string, lo paso a int en este caso
-    
-    return(
-        <React.Fragment>
-            {
-                cursoElegido ? 
-                    (
-                        <div className="ed-grid">
-                            <h1 className="m-cols-3">{cursoElegido.title}</h1>
-                            <img className="m-cols-2" src={cursoElegido.image} alt={cursoElegido.title}></img><br/><br/>
-                            <p className="ed-grid">{`Precio: ${cursoElegido.price} USD`}</p>
-                        </div>
-                    ) :
-                    <h1 className="ed-grid">ERROR: El curso elegido no existe.</h1>
-            }
-        </React.Fragment>
-    )
+  const [stateCourse, setStateCourse] = useState({})   // Puedo iniciar el estado vacio
+  const [stateComment, setCommentState] = useState('Sin Datos')  //Aca no recibe un objeto sino un string asi que le puedo dar valor inicial
+
+  useEffect(() => {
+    axios.get(`http://my-json-server.typicode.com/JavierAgustinAle/json-db/courses/${match.params.id}`)
+      .then((result) => setStateCourse(result.data));
+  }, [match.params.id])  // Con esta regal [] le indicamos que se ejecute una sola vez(copiando el componentDidMount)
+
+  const setComment = e => {
+    setCommentState(e.target.value)
+  }
+
+  return (
+    <React.Fragment>
+      {
+        stateCourse ?
+          (
+            <div className="ed-grid">
+              <div className="l-block">
+                <h1 className="m-cols-3">{stateCourse.title}</h1>
+                <img className="m-cols-1" src={stateCourse.image} alt={stateCourse.title}></img><br /><br />
+                <p className="m-cols-2">{`Precio: ${stateCourse.price} USD`}</p>
+                <p className="ed-grid">{`Dictado por: ${stateCourse.profesor}`}</p>
+              </div>
+              <div>
+                <h2>Escribe tu comentario</h2>
+                <input type="text" placeholder="Escribe..." onChange={setComment.bind(this)} /><br />
+                <p> {stateComment} </p>
+              </div>
+            </div>
+          ) :
+          <h1 className="ed-grid">ERROR: El curso elegido no existe.</h1>
+      }
+    </React.Fragment>
+  )
 }
 
 
