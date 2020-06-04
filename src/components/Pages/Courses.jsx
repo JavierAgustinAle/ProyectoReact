@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
 import '../../assets/css/styles.scss';
-import axios from 'axios';
-import CourseGrid from '../Organisms/CourseGrid';
+import CourseGrid from '../Organisms/CourseGrid'
+import axios from 'axios'
 
 class Courses extends Component {
+
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
-            courses: [],
-        };
+            courses: []  //Iniciamos el array vacio, aca vamos a meter lo que trae la API
+        }
     }
 
     componentDidMount() {
         axios.get('http://my-json-server.typicode.com/JavierAgustinAle/json-db/courses')
-            .then((result) =>
+            .then((result) => {
                 this.setState({
-                    courses: result.data,
+                    courses: result.data
                 })
-            );
+            })
     }
 
     render() {
         const { courses } = this.state;
-
-        return <CourseGrid courses={courses} />; // Enviamos el array que viene de la API
+        return (
+            <div>
+                <CourseGrid courses={courses} />
+            </div>
+        )
     }
+
 }
 
 export default Courses;
