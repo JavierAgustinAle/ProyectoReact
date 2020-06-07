@@ -2,27 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../assets/css/styles.scss';
 import { Link } from 'react-router-dom';
+import { addToCart } from '../../redux/actionCreators';
+import { connect } from 'react-redux'
 
 
 
-const CourseCard = props => (
+const CourseCard = ({ id, image, title, price, addCourseToCart, cart }) => (
     <React.Fragment>
         <article className="card">
             <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-                <Link to={`/cursos/${props.id}`}>
-                     <img src={props.image} alt={props.title} /> 
+                <Link to={`/cursos/${id}`}>
+                    <img src={image} alt={title} />
                 </Link>
             </div>
             <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
                 <h3 className="center">
-                    {props.title}
+                    {title}
                 </h3>
                 <div className="s-main-center">
-                    <a className="button--ghost-alert button--tiny" href="www.linkedin.com/in/javieragustinale">{` $ ${props.price} USD`}</a>
+                    <button
+                        className="button--ghost-alert button--tiny"
+                        onClick={() => addCourseToCart(id)}
+                    >
+                        {
+                            cart.find(a => a === id)
+                                ? "Agregado al carrito"
+                                : ` $ ${price} USD`
+                        }
+                    </button>
                 </div>
             </div>
         </article>
-        
+
     </React.Fragment>
 )
 
@@ -38,8 +49,18 @@ CourseCard.defaultProps = {  //Indico los valores que tendran las props por defe
     price: 0
 }
 
+const mapStateToProps = state => ({
+    cart: state.cart                //Pongo en mi propiedad cart lo que tenga el state en el array cart
+})
 
-export default CourseCard;
+const mapDispatchToProps = dispatch => ({
+    addCourseToCart(id) {
+        dispatch(addToCart(id))
+    }
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseCard);
 
 
 
@@ -51,4 +72,3 @@ export default CourseCard;
                     //{ props.image                                         Condicion para cuando existe props.image
                     //? <img src={props.image} alt={props.title} />              Si es TRUE
                    // : <img src="Imagen Default" alt={props.title } /> }        Si es FALSE
-                
