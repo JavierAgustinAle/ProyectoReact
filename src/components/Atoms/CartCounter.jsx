@@ -16,11 +16,9 @@ const mapStateToProps = state => (
     }
 )
 
-const mapDispatchToProps = () => {
 
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartCounter);
+export default connect(mapStateToProps)(CartCounter);
 
 // mapStateToProps --> Trae el state global y lo convertimos a props para usarlo en este componente
 // esta const recibe el state global de la app y lo convierte a props, asi este componente lo puede leer
