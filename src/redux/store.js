@@ -1,5 +1,6 @@
 import { createStore } from 'redux'
 import { ADD_TO_CART, DELETE_FROM_CART } from './actions';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 
 const initialStore = {
@@ -29,7 +30,7 @@ const rootReducer = (state = initialStore, action) => {
     return state
 }
 
-export default createStore(rootReducer);
+export default createStore(rootReducer, composeWithDevTools());
 
 // Creamos el REDUCER, en caso de que el state sea undifined le colocamos el valor del initialStore.
 
