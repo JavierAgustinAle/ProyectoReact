@@ -54,7 +54,7 @@ CourseCard.defaultProps = {  //Indico los valores que tendran las props por defe
 }
 
 const mapStateToProps = state => ({
-    cart: state.cart                //Pongo en mi propiedad cart lo que tenga el state en el array cart
+    cart: state.cartReducer.cart                //Pongo en mi propiedad cart lo que tenga el state en el array cart
 })
 
 const mapDispatchToProps = dispatch => ({

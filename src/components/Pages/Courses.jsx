@@ -1,36 +1,14 @@
-import React, { Component } from 'react';
-import '../../assets/css/styles.scss';
+import React from 'react';
 import CourseGrid from '../Organisms/CourseGrid'
-import axios from 'axios'
+import { connect } from 'react-redux'
 
-class Courses extends Component {
+const Courses = ({ courses }) => <CourseGrid courses={courses} />
 
-    constructor(props) {
-        super(props)
+const mapStateToProps = state => ({
+    courses: state.coursesReducer.courses
+})
 
-        this.state = {
-            courses: []  //Iniciamos el array vacio, aca vamos a meter lo que trae la API
-        }
-    }
+export default connect(mapStateToProps, {})(Courses);
 
-    componentDidMount() {
-        axios.get('http://my-json-server.typicode.com/JavierAgustinAle/json-db/courses')
-            .then((result) => {
-                this.setState({
-                    courses: result.data
-                })
-            })
-    }
 
-    render() {
-        const { courses } = this.state;
-        return (
-            <div>
-                <CourseGrid courses={courses} />
-            </div>
-        )
-    }
-
-}
-
-export default Courses;
+// En este caso que no usamos el mapDispatchToProps, podemos pasarlo como {}

@@ -3,7 +3,11 @@ import '../assets/css/App.css';
 import '../assets/css/styles.scss';
 import AppRoutes from './AppRoutes';
 import { Provider } from 'react-redux';
-import store from '../redux/store'
+import store from '../redux/store';
+import { getCourseList } from '../redux/actionCreators';
+
+
+store.dispatch(getCourseList())     // Ejecuto la accion getCourseList para que traiga los cursos desde la API
 
 const App = () => (
   <Provider store={store} >

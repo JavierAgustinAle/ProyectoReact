@@ -12,7 +12,7 @@ const CartCounter = ({ cartLength }) => (
 
 const mapStateToProps = state => (
     {
-        cartLength: state.cart   //En cartLenght guardo el valor que tiene el store cart(Esste caso es un array )
+        cartLength: state.cartReducer.cart   //En cartLenght guardo el valor que tiene el store cart(Esste caso es un array )
     }
 )
 

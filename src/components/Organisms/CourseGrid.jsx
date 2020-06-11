@@ -1,6 +1,5 @@
 import React from 'react'
 import CourseCard from '../Molecules/CourseCard'
-import withLoader from '../HOC/withLoader'
 
 
 const CourseGrid = ({ courses }) => (
@@ -21,7 +20,8 @@ const CourseGrid = ({ courses }) => (
     </React.Fragment >
 )
 
-export default withLoader('courses')(CourseGrid);   //Mando como string el nombre de las props de este componente
+export default CourseGrid;   //Mando como string el nombre de las props de este componente
 
 
 // Asi hago para invocar un componente de orden superior (HOC), agrego el nombre del componente en el export
+// export default withLoader('courses')(CourseGrid);
