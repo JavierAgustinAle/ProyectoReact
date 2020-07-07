@@ -5,15 +5,23 @@ import AppRoutes from './AppRoutes';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 import { getCourseList } from '../redux/actionCreators';
+//import CoursesProvider from './Context/CoursesProvider';
 
 
 store.dispatch(getCourseList())     // Ejecuto la accion getCourseList para que traiga los cursos desde la API
 
 const App = () => (
+
+  //ASI SE HACE USANDO REDUX
+
   <Provider store={store} >
     <AppRoutes />
   </Provider>
 
+  //ASI SE HACE USANDO CONTEXT API
+  // <CoursesProvider>
+  //   <AppRoutes />
+  // </CoursesProvider>
 )
 
 export default App;
