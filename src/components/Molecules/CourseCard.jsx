@@ -54,12 +54,12 @@ CourseCard.defaultProps = {  //Indico los valores que tendran las props por defe
 }
 
 const mapStateToProps = state => ({
-    cart: state.cartReducer.cart                //Pongo en mi propiedad cart lo que tenga el state en el array cart
+    cart: state.cartReducer.cart                //Pongo en mi propiedad cart lo que tenga el state en el array cart del store
 })
 
 const mapDispatchToProps = dispatch => ({
     addCourseToCart(id) {
-        dispatch(addToCart(id))
+        dispatch(addToCart(id))             //Despacho las acciones que quiero realizar
     },
 
     deleteCourseFromCart(id) {

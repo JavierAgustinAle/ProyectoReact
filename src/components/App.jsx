@@ -4,9 +4,12 @@ import '../assets/css/styles.scss';
 import AppRoutes from './AppRoutes';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
-import { getCourseList } from '../redux/actionCreators';
-//import CoursesProvider from './Context/CoursesProvider';
+import { getCourseList } from '../redux/actionCreators';    //REDUX
 
+//import CoursesProvider from './Context/CoursesProvider';  CONTEXT API
+
+//import { Provider } from 'mobx-react';              MOBX
+//import CArtStore from '../stores/CArtStore';
 
 store.dispatch(getCourseList())     // Ejecuto la accion getCourseList para que traiga los cursos desde la API
 
@@ -22,6 +25,11 @@ const App = () => (
   // <CoursesProvider>
   //   <AppRoutes />
   // </CoursesProvider>
+
+  // ASI SE HACE USANDO MobX
+  //  <Provider CartStore={ CArtStore }>
+  //    <AppRoutes />
+  //  </Provider>
 )
 
 export default App;
